@@ -1,0 +1,49 @@
+
+> finance-service@0.0.1 start:dev
+> nest start --watch
+
+[2J[3J[H[[90m2:16:28 PM[0m] Starting compilation in watch mode...
+
+[[90m2:16:31 PM[0m] Found 0 errors. Watching for file changes.
+
+[32m[Nest] 80754  - [39m11/23/2025, 2:16:32 PM [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 80754  - [39m11/23/2025, 2:16:32 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +8ms[39m
+[32m[Nest] 80754  - [39m11/23/2025, 2:16:32 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mMongooseModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 80754  - [39m11/23/2025, 2:16:32 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigHostModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 80754  - [39m11/23/2025, 2:16:32 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 80754  - [39m11/23/2025, 2:16:32 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 80754  - [39m11/23/2025, 2:16:32 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mMongooseCoreModule dependencies initialized[39m[38;5;3m +26ms[39m
+[32m[Nest] 80754  - [39m11/23/2025, 2:16:32 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mMongooseModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 80754  - [39m11/23/2025, 2:16:32 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mFinanceModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 80754  - [39m11/23/2025, 2:16:32 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mFinanceController {/}:[39m[38;5;3m +18ms[39m
+[32m[Nest] 80754  - [39m11/23/2025, 2:16:32 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/:leadId, GET} route[39m[38;5;3m +3ms[39m
+[32m[Nest] 80754  - [39m11/23/2025, 2:16:32 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/add-client-payment, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 80754  - [39m11/23/2025, 2:16:32 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/update-client-payment, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 80754  - [39m11/23/2025, 2:16:32 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/delete-client-payment, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 80754  - [39m11/23/2025, 2:16:32 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/add-vendor-payment, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 80754  - [39m11/23/2025, 2:16:32 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/update-vendor-payment, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 80754  - [39m11/23/2025, 2:16:32 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/delete-vendor-payment, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 80754  - [39m11/23/2025, 2:16:32 PM [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +1ms[39m
+[31m[Nest] 80754  - [39m11/23/2025, 2:16:32 PM [31m  ERROR[39m [38;5;3m[NestApplication] [39m[31mError: listen EADDRINUSE: address already in use :::3002[39m[38;5;3m +2ms[39m
+node:net:1940
+    const ex = new UVExceptionWithHostPort(err, 'listen', address, port);
+               ^
+
+Error: listen EADDRINUSE: address already in use :::3002
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at ExpressAdapter.listen (/Users/suraj/Documents/Office Internal Project/backend/finance-service/node_modules/@nestjs/platform-express/adapters/express-adapter.js:127:32)
+    at /Users/suraj/Documents/Office Internal Project/backend/finance-service/node_modules/@nestjs/core/nest-application.js:188:30
+    at new Promise (<anonymous>)
+    at NestApplication.listen (/Users/suraj/Documents/Office Internal Project/backend/finance-service/node_modules/@nestjs/core/nest-application.js:178:16)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async bootstrap (/Users/suraj/Documents/Office Internal Project/backend/finance-service/src/main.ts:18:3) {
+  code: 'EADDRINUSE',
+  errno: -48,
+  syscall: 'listen',
+  address: '::',
+  port: 3002
+}
+
+Node.js v22.19.0

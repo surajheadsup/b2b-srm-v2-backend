@@ -1,0 +1,2 @@
+- validation like, number lenght check email check, ... these type of any validation will not be ther while coding, those validation can be handled via the fontent
+- dont ask me for mkdir permission, for any new file creation permission

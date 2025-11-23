@@ -1,0 +1,88 @@
+
+> general-service@0.0.1 start:dev
+> nest start --watch
+
+[2J[3J[H[[90m2:16:26 PM[0m] Starting compilation in watch mode...
+
+[[90m2:16:30 PM[0m] Found 0 errors. Watching for file changes.
+
+[32m[Nest] 80748  - [39m11/23/2025, 2:16:31 PM [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 80748  - [39m11/23/2025, 2:16:31 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +17ms[39m
+[32m[Nest] 80748  - [39m11/23/2025, 2:16:31 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mMongooseModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 80748  - [39m11/23/2025, 2:16:31 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigHostModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 80748  - [39m11/23/2025, 2:16:31 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 80748  - [39m11/23/2025, 2:16:31 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 80748  - [39m11/23/2025, 2:16:31 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +0ms[39m
+(node:80748) [MONGODB DRIVER] Warning: useNewUrlParser is a deprecated option: useNewUrlParser has no effect since Node.js Driver version 4.0.0 and will be removed in the next major version
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:80748) [MONGODB DRIVER] Warning: useUnifiedTopology is a deprecated option: useUnifiedTopology has no effect since Node.js Driver version 4.0.0 and will be removed in the next major version
+[32m[Nest] 80748  - [39m11/23/2025, 2:16:31 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mMongooseCoreModule dependencies initialized[39m[38;5;3m +46ms[39m
+[32m[Nest] 80748  - [39m11/23/2025, 2:16:31 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mMongooseModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 80748  - [39m11/23/2025, 2:16:31 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mMongooseModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 80748  - [39m11/23/2025, 2:16:31 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mMongooseModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 80748  - [39m11/23/2025, 2:16:31 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mMongooseModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 80748  - [39m11/23/2025, 2:16:31 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mMongooseModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 80748  - [39m11/23/2025, 2:16:31 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mMongooseModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 80748  - [39m11/23/2025, 2:16:31 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mMongooseModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 80748  - [39m11/23/2025, 2:16:31 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mMongooseModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 80748  - [39m11/23/2025, 2:16:31 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mMongooseModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 80748  - [39m11/23/2025, 2:16:31 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mMongooseModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 80748  - [39m11/23/2025, 2:16:31 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 80748  - [39m11/23/2025, 2:16:31 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mProductModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 80748  - [39m11/23/2025, 2:16:31 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mUserModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 80748  - [39m11/23/2025, 2:16:31 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mRoleModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 80748  - [39m11/23/2025, 2:16:31 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mVendorModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 80748  - [39m11/23/2025, 2:16:31 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mCustomerModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 80748  - [39m11/23/2025, 2:16:31 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mQuotationModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 80748  - [39m11/23/2025, 2:16:31 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mOrderModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 80748  - [39m11/23/2025, 2:16:31 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPoModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 80748  - [39m11/23/2025, 2:16:31 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPipelineModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 80748  - [39m11/23/2025, 2:16:31 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/generalservice/auth}:[39m[38;5;3m +4ms[39m
+[32m[Nest] 80748  - [39m11/23/2025, 2:16:31 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/generalservice/auth/login, POST} route[39m[38;5;3m +4ms[39m
+[32m[Nest] 80748  - [39m11/23/2025, 2:16:31 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mProductController {/generalservice/product}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 80748  - [39m11/23/2025, 2:16:31 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/generalservice/product/create-product, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 80748  - [39m11/23/2025, 2:16:31 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/generalservice/product/get-products, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 80748  - [39m11/23/2025, 2:16:31 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/generalservice/product/update-product, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 80748  - [39m11/23/2025, 2:16:31 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/generalservice/product/delete-product, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 80748  - [39m11/23/2025, 2:16:31 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mUserController {/generalservice}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 80748  - [39m11/23/2025, 2:16:31 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/generalservice/create-user, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 80748  - [39m11/23/2025, 2:16:31 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/generalservice/get-users, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 80748  - [39m11/23/2025, 2:16:31 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/generalservice/update-user, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 80748  - [39m11/23/2025, 2:16:31 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/generalservice/delete-user, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 80748  - [39m11/23/2025, 2:16:31 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mRoleController {/generalservice}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 80748  - [39m11/23/2025, 2:16:31 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/generalservice/create-role, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 80748  - [39m11/23/2025, 2:16:31 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/generalservice/get-roles, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 80748  - [39m11/23/2025, 2:16:31 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/generalservice/update-role, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 80748  - [39m11/23/2025, 2:16:31 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/generalservice/delete-role, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 80748  - [39m11/23/2025, 2:16:31 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mVendorController {/generalservice}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 80748  - [39m11/23/2025, 2:16:31 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/generalservice/create-vendor, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 80748  - [39m11/23/2025, 2:16:31 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/generalservice/get-vendors, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 80748  - [39m11/23/2025, 2:16:31 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/generalservice/update-vendor, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 80748  - [39m11/23/2025, 2:16:31 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/generalservice/delete-vendor, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 80748  - [39m11/23/2025, 2:16:31 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mCustomerController {/generalservice}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 80748  - [39m11/23/2025, 2:16:31 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/generalservice/create-customer, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 80748  - [39m11/23/2025, 2:16:31 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/generalservice/get-customers, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 80748  - [39m11/23/2025, 2:16:31 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/generalservice/update-customer, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 80748  - [39m11/23/2025, 2:16:31 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/generalservice/delete-customer, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 80748  - [39m11/23/2025, 2:16:31 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mQuotationController {/generalservice}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 80748  - [39m11/23/2025, 2:16:31 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/generalservice/create-quotation, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 80748  - [39m11/23/2025, 2:16:31 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/generalservice/get-quotations, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 80748  - [39m11/23/2025, 2:16:31 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/generalservice/update-quotation, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 80748  - [39m11/23/2025, 2:16:31 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/generalservice/delete-quotation, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 80748  - [39m11/23/2025, 2:16:31 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mOrderController {/generalservice}:[39m[38;5;3m +1ms[39m
+[32m[Nest] 80748  - [39m11/23/2025, 2:16:31 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/generalservice/create-order, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 80748  - [39m11/23/2025, 2:16:31 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/generalservice/get-orders, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 80748  - [39m11/23/2025, 2:16:31 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/generalservice/update-order, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 80748  - [39m11/23/2025, 2:16:31 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/generalservice/delete-order, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 80748  - [39m11/23/2025, 2:16:31 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mPoController {/generalservice}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 80748  - [39m11/23/2025, 2:16:31 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/generalservice/create-po, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 80748  - [39m11/23/2025, 2:16:31 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/generalservice/get-pos, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 80748  - [39m11/23/2025, 2:16:31 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/generalservice/update-po, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 80748  - [39m11/23/2025, 2:16:31 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/generalservice/delete-po, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 80748  - [39m11/23/2025, 2:16:31 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mPipelineController {/generalservice}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 80748  - [39m11/23/2025, 2:16:31 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/generalservice/create-pipeline, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 80748  - [39m11/23/2025, 2:16:31 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/generalservice/get-pipelines, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 80748  - [39m11/23/2025, 2:16:31 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/generalservice/update-pipeline, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 80748  - [39m11/23/2025, 2:16:31 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/generalservice/delete-pipeline, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 80748  - [39m11/23/2025, 2:16:31 PM [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +2ms[39m
+🚀 Server running: http://localhost:9001/generalservice

@@ -1,0 +1,1068 @@
+{
+	"info": {
+		"name": "Backend Microservices API Collection",
+		"description": "Complete API collection for testing all backend services through API Gateway",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{jwt_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if (pm.response.code === 200) {",
+									"    var jsonData = pm.response.json();",
+									"    pm.environment.set(\"jwt_token\", jsonData.token);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\": \"sumit\",\n  \"password\": \"your-password\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/login",
+							"host": ["{{base_url}}"],
+							"path": ["auth", "login"]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User Management",
+			"item": [
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"John Doe\",\n  \"username\": \"johndoe\",\n  \"email\": \"john@example.com\",\n  \"password\": \"password123\",\n  \"phoneNumber\": \"9876543210\",\n  \"gender\": \"male\",\n  \"roleId\": \"6914901b0266ae050a6d4501\",\n  \"userType\": \"admin\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/userservice/create-user",
+							"host": ["{{base_url}}"],
+							"path": ["userservice", "create-user"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Users",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"page\": 1,\n  \"limit\": 10,\n  \"search\": {\n    \"name\": \"\",\n    \"email\": \"\"\n  },\n  \"populate\": [\n    {\n      \"path\": \"roleId\",\n      \"select\": \"roleName allowedEndPoints\"\n    }\n  ]\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/userservice/get-users",
+							"host": ["{{base_url}}"],
+							"path": ["userservice", "get-users"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"_id\": \"6915b19edfcd7bf398aba0f5\",\n  \"name\": \"John Doe Updated\",\n  \"phoneNumber\": \"9876543211\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/userservice/update-user",
+							"host": ["{{base_url}}"],
+							"path": ["userservice", "update-user"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"_id\": \"6915b19edfcd7bf398aba0f5\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/userservice/delete-user",
+							"host": ["{{base_url}}"],
+							"path": ["userservice", "delete-user"]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Role Management",
+			"item": [
+				{
+					"name": "Create Role",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"roleName\": \"Sales Manager\",\n  \"allowedEndPoints\": [\n    \"/get-dashboards\",\n    \"/create-quotation\",\n    \"/update-quotation\",\n    \"/get-quotations\",\n    \"/create-order\",\n    \"/get-orders\"\n  ],\n  \"permission\": [\n    {\n      \"value\": \"Quotation Master\",\n      \"permission\": [\n        {\n          \"read\": true,\n          \"write\": true,\n          \"delete\": false\n        }\n      ],\n      \"child\": null\n    }\n  ],\n  \"status\": \"active\",\n  \"roleType\": \"user\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/userservice/create-role",
+							"host": ["{{base_url}}"],
+							"path": ["userservice", "create-role"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Roles",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"page\": 1,\n  \"limit\": 10,\n  \"search\": {\n    \"roleName\": \"\"\n  }\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/userservice/get-roles",
+							"host": ["{{base_url}}"],
+							"path": ["userservice", "get-roles"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Role",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"_id\": \"6914901b0266ae050a6d4501\",\n  \"roleName\": \"Sales Manager Updated\",\n  \"status\": \"active\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/userservice/update-role",
+							"host": ["{{base_url}}"],
+							"path": ["userservice", "update-role"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Role",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"_id\": \"6914901b0266ae050a6d4501\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/userservice/delete-role",
+							"host": ["{{base_url}}"],
+							"path": ["userservice", "delete-role"]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Vendor Management",
+			"item": [
+				{
+					"name": "Create Vendor",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"ABC Suppliers\",\n  \"email\": \"contact@abcsuppliers.com\",\n  \"phoneNumber\": \"9876543210\",\n  \"gstNumber\": \"29ABCDE1234F1Z5\",\n  \"panNumber\": \"ABCDE1234F\",\n  \"billingAddress\": {\n    \"address\": \"123 Main Street\",\n    \"city\": \"Mumbai\",\n    \"state\": \"Maharashtra\",\n    \"pincode\": \"400001\",\n    \"country\": \"India\"\n  },\n  \"shippingAddress\": {\n    \"address\": \"123 Main Street\",\n    \"city\": \"Mumbai\",\n    \"state\": \"Maharashtra\",\n    \"pincode\": \"400001\",\n    \"country\": \"India\"\n  },\n  \"bankDetails\": [\n    {\n      \"bankName\": \"HDFC Bank\",\n      \"accountNumber\": \"1234567890\",\n      \"ifscCode\": \"HDFC0001234\",\n      \"branchName\": \"Mumbai Main\"\n    }\n  ]\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/generalservice/create-vendor",
+							"host": ["{{base_url}}"],
+							"path": ["generalservice", "create-vendor"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Vendors",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"page\": 1,\n  \"limit\": 10,\n  \"search\": {\n    \"name\": \"\",\n    \"email\": \"\"\n  }\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/generalservice/get-vendors",
+							"host": ["{{base_url}}"],
+							"path": ["generalservice", "get-vendors"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Vendor",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"_id\": \"vendor_id_here\",\n  \"name\": \"ABC Suppliers Updated\",\n  \"phoneNumber\": \"9876543211\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/generalservice/update-vendor",
+							"host": ["{{base_url}}"],
+							"path": ["generalservice", "update-vendor"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Vendor",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"_id\": \"vendor_id_here\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/generalservice/delete-vendor",
+							"host": ["{{base_url}}"],
+							"path": ["generalservice", "delete-vendor"]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Customer Management",
+			"item": [
+				{
+					"name": "Create Customer",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"XYZ Corporation\",\n  \"email\": \"contact@xyzcorp.com\",\n  \"phoneNumber\": \"9876543210\",\n  \"gstNumber\": \"29XYZAB1234C1Z5\",\n  \"panNumber\": \"XYZAB1234C\",\n  \"billingAddress\": {\n    \"address1\": \"456 Business Park\",\n    \"address2\": \"Sector 5\",\n    \"city\": \"Bangalore\",\n    \"state\": \"Karnataka\",\n    \"pincode\": \"560001\",\n    \"country\": \"India\",\n    \"location\": {\n      \"lat\": 12.9716,\n      \"lng\": 77.5946\n    }\n  },\n  \"shippingAddress\": {\n    \"address1\": \"456 Business Park\",\n    \"address2\": \"Sector 5\",\n    \"city\": \"Bangalore\",\n    \"state\": \"Karnataka\",\n    \"pincode\": \"560001\",\n    \"country\": \"India\",\n    \"location\": {\n      \"lat\": 12.9716,\n      \"lng\": 77.5946\n    }\n  }\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/generalservice/create-customer",
+							"host": ["{{base_url}}"],
+							"path": ["generalservice", "create-customer"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Customers",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"page\": 1,\n  \"limit\": 10,\n  \"search\": {\n    \"name\": \"\",\n    \"email\": \"\"\n  }\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/generalservice/get-customers",
+							"host": ["{{base_url}}"],
+							"path": ["generalservice", "get-customers"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Customer",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"_id\": \"customer_id_here\",\n  \"name\": \"XYZ Corporation Updated\",\n  \"phoneNumber\": \"9876543211\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/generalservice/update-customer",
+							"host": ["{{base_url}}"],
+							"path": ["generalservice", "update-customer"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Customer",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"_id\": \"customer_id_here\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/generalservice/delete-customer",
+							"host": ["{{base_url}}"],
+							"path": ["generalservice", "delete-customer"]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product Management",
+			"item": [
+				{
+					"name": "Create Product",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Premium Widget\",\n  \"category\": \"Electronics\",\n  \"sku\": \"WIDGET-001\",\n  \"description\": \"High quality widget for industrial use\",\n  \"price\": 5000,\n  \"unit\": \"piece\",\n  \"hsnCode\": \"8471\",\n  \"gstRate\": 18\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/generalservice/create-product",
+							"host": ["{{base_url}}"],
+							"path": ["generalservice", "create-product"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Products",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"page\": 1,\n  \"limit\": 10,\n  \"search\": {\n    \"name\": \"\",\n    \"category\": \"\"\n  }\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/generalservice/get-products",
+							"host": ["{{base_url}}"],
+							"path": ["generalservice", "get-products"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Product",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"_id\": \"product_id_here\",\n  \"name\": \"Premium Widget Updated\",\n  \"price\": 5500\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/generalservice/update-product",
+							"host": ["{{base_url}}"],
+							"path": ["generalservice", "update-product"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Product",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"_id\": \"product_id_here\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/generalservice/delete-product",
+							"host": ["{{base_url}}"],
+							"path": ["generalservice", "delete-product"]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Quotation Management",
+			"item": [
+				{
+					"name": "Create Quotation",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"quotationNo\": \"QT-2025-001\",\n  \"customerId\": \"customer_id_here\",\n  \"products\": [\n    {\n      \"productId\": \"product_id_here\",\n      \"quantity\": 10,\n      \"unitPrice\": 5000,\n      \"discount\": 5,\n      \"gstRate\": 18,\n      \"variants\": [\n        {\n          \"name\": \"Color\",\n          \"value\": \"Red\",\n          \"price\": 100\n        }\n      ],\n      \"vendors\": [\n        {\n          \"vendorId\": \"vendor_id_here\",\n          \"quantity\": 10,\n          \"unitPrice\": 4000\n        }\n      ]\n    }\n  ],\n  \"validUntil\": 1740268800000,\n  \"terms\": \"Payment within 30 days\",\n  \"notes\": \"Bulk order discount applied\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/generalservice/create-quotation",
+							"host": ["{{base_url}}"],
+							"path": ["generalservice", "create-quotation"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Quotations",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"page\": 1,\n  \"limit\": 10,\n  \"search\": {\n    \"quotationNo\": \"\"\n  },\n  \"populate\": [\n    {\n      \"path\": \"customerId\",\n      \"select\": \"name email\"\n    },\n    {\n      \"path\": \"products.productId\",\n      \"select\": \"name sku\"\n    }\n  ]\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/generalservice/get-quotations",
+							"host": ["{{base_url}}"],
+							"path": ["generalservice", "get-quotations"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Quotation",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"_id\": \"quotation_id_here\",\n  \"status\": \"approved\",\n  \"notes\": \"Approved by manager\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/generalservice/update-quotation",
+							"host": ["{{base_url}}"],
+							"path": ["generalservice", "update-quotation"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Quotation",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"_id\": \"quotation_id_here\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/generalservice/delete-quotation",
+							"host": ["{{base_url}}"],
+							"path": ["generalservice", "delete-quotation"]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Order Management",
+			"item": [
+				{
+					"name": "Create Order",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"orderNo\": \"ORD-2025-001\",\n  \"invoiceNo\": \"INV-2025-001\",\n  \"customerId\": \"customer_id_here\",\n  \"products\": [\n    {\n      \"productId\": \"product_id_here\",\n      \"quantity\": 10,\n      \"unitPrice\": 5000,\n      \"discount\": 5,\n      \"gstRate\": 18\n    }\n  ],\n  \"vendorBreakdown\": [\n    {\n      \"vendorId\": \"vendor_id_here\",\n      \"productId\": \"product_id_here\",\n      \"quantity\": 10,\n      \"unitPrice\": 4000\n    }\n  ],\n  \"calculations\": {\n    \"totalAmount\": 50000,\n    \"cgst\": 4500,\n    \"sgst\": 4500,\n    \"totalTaxableAmount\": 59000\n  },\n  \"billingAddress\": {\n    \"address1\": \"123 Street\",\n    \"city\": \"Mumbai\",\n    \"state\": \"Maharashtra\",\n    \"pincode\": \"400001\",\n    \"country\": \"India\"\n  },\n  \"shippingAddress\": {\n    \"address1\": \"123 Street\",\n    \"city\": \"Mumbai\",\n    \"state\": \"Maharashtra\",\n    \"pincode\": \"400001\",\n    \"country\": \"India\"\n  }\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/generalservice/create-order",
+							"host": ["{{base_url}}"],
+							"path": ["generalservice", "create-order"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Orders",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"page\": 1,\n  \"limit\": 10,\n  \"search\": {\n    \"orderNo\": \"\"\n  },\n  \"populate\": [\n    {\n      \"path\": \"customerId\",\n      \"select\": \"name email\"\n    },\n    {\n      \"path\": \"products.productId\",\n      \"select\": \"name sku\"\n    }\n  ]\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/generalservice/get-orders",
+							"host": ["{{base_url}}"],
+							"path": ["generalservice", "get-orders"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Order",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"_id\": \"order_id_here\",\n  \"status\": \"processing\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/generalservice/update-order",
+							"host": ["{{base_url}}"],
+							"path": ["generalservice", "update-order"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Order",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"_id\": \"order_id_here\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/generalservice/delete-order",
+							"host": ["{{base_url}}"],
+							"path": ["generalservice", "delete-order"]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PO Management",
+			"item": [
+				{
+					"name": "Create PO",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"poNo\": \"PO-2025-001\",\n  \"poType\": \"client\",\n  \"products\": [\"product_id_here\"],\n  \"quotations\": [\"quotation_id_here\"],\n  \"customers\": [\"customer_id_here\"],\n  \"orders\": [\"order_id_here\"],\n  \"files\": [\"file_id_here\"]\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/generalservice/create-po",
+							"host": ["{{base_url}}"],
+							"path": ["generalservice", "create-po"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get POs",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"page\": 1,\n  \"limit\": 10,\n  \"search\": {\n    \"poNo\": \"\",\n    \"poType\": \"\"\n  }\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/generalservice/get-pos",
+							"host": ["{{base_url}}"],
+							"path": ["generalservice", "get-pos"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update PO",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"_id\": \"po_id_here\",\n  \"status\": \"approved\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/generalservice/update-po",
+							"host": ["{{base_url}}"],
+							"path": ["generalservice", "update-po"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete PO",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"_id\": \"po_id_here\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/generalservice/delete-po",
+							"host": ["{{base_url}}"],
+							"path": ["generalservice", "delete-po"]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pipeline Management",
+			"item": [
+				{
+					"name": "Create Pipeline",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"leadDetails\": {\n    \"refNo\": \"LEAD-2025-001\",\n    \"stakeHolder\": [\n      {\n        \"name\": \"John Doe\",\n        \"role\": \"Decision Maker\"\n      }\n    ],\n    \"leadType\": \"hot\",\n    \"leadSource\": \"lead_source_id_here\"\n  },\n  \"quotations\": [\"quotation_id_here\"],\n  \"customers\": [\"customer_id_here\"],\n  \"clientPos\": [],\n  \"vendorPos\": [],\n  \"orders\": [],\n  \"finance\": [],\n  \"products\": [],\n  \"billingAddress\": [],\n  \"shippingAddress\": []\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/generalservice/create-pipeline",
+							"host": ["{{base_url}}"],
+							"path": ["generalservice", "create-pipeline"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Pipelines",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"page\": 1,\n  \"limit\": 10,\n  \"search\": {\n    \"leadDetails.refNo\": \"\"\n  }\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/generalservice/get-pipelines",
+							"host": ["{{base_url}}"],
+							"path": ["generalservice", "get-pipelines"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Pipeline",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"_id\": \"pipeline_id_here\",\n  \"leadDetails\": {\n    \"leadType\": \"warm\"\n  }\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/generalservice/update-pipeline",
+							"host": ["{{base_url}}"],
+							"path": ["generalservice", "update-pipeline"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Pipeline",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"_id\": \"pipeline_id_here\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/generalservice/delete-pipeline",
+							"host": ["{{base_url}}"],
+							"path": ["generalservice", "delete-pipeline"]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Finance Management",
+			"item": [
+				{
+					"name": "Get Finance by Lead ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/financeservice/:leadId",
+							"host": ["{{base_url}}"],
+							"path": ["financeservice", ":leadId"],
+							"variable": [
+								{
+									"key": "leadId",
+									"value": "lead_id_here"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Client Payment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"leadId\": \"lead_id_here\",\n  \"orderId\": \"order_id_here\",\n  \"amount\": 50000,\n  \"paymentType\": \"advance\",\n  \"paymentMethod\": \"bank_transfer\",\n  \"transactionId\": \"TXN123456789\",\n  \"paymentDate\": 1732348800000,\n  \"paymentProof\": \"proof_file_url_here\",\n  \"remarks\": \"First advance payment\",\n  \"creditDays\": 30,\n  \"interestRate\": 2.5,\n  \"dueDate\": 1734940800000,\n  \"interestAmount\": 1250\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/financeservice/add-client-payment",
+							"host": ["{{base_url}}"],
+							"path": ["financeservice", "add-client-payment"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Client Payment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"leadId\": \"lead_id_here\",\n  \"paymentId\": \"CLIENT-PAYMENT-1732348800000\",\n  \"amount\": 55000,\n  \"remarks\": \"Updated payment amount\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/financeservice/update-client-payment",
+							"host": ["{{base_url}}"],
+							"path": ["financeservice", "update-client-payment"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Client Payment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"leadId\": \"lead_id_here\",\n  \"paymentId\": \"CLIENT-PAYMENT-1732348800000\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/financeservice/delete-client-payment",
+							"host": ["{{base_url}}"],
+							"path": ["financeservice", "delete-client-payment"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Vendor Payment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"leadId\": \"lead_id_here\",\n  \"orderId\": \"order_id_here\",\n  \"amount\": 40000,\n  \"paymentType\": \"full\",\n  \"paymentMethod\": \"bank_transfer\",\n  \"transactionId\": \"TXN987654321\",\n  \"paymentDate\": 1732348800000,\n  \"paymentProof\": \"proof_file_url_here\",\n  \"remarks\": \"Payment to vendor for products\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/financeservice/add-vendor-payment",
+							"host": ["{{base_url}}"],
+							"path": ["financeservice", "add-vendor-payment"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Vendor Payment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"leadId\": \"lead_id_here\",\n  \"paymentId\": \"VENDOR-PAYMENT-1732348800000\",\n  \"amount\": 42000,\n  \"remarks\": \"Updated vendor payment\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/financeservice/update-vendor-payment",
+							"host": ["{{base_url}}"],
+							"path": ["financeservice", "update-vendor-payment"]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Vendor Payment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"leadId\": \"lead_id_here\",\n  \"paymentId\": \"VENDOR-PAYMENT-1732348800000\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/financeservice/delete-vendor-payment",
+							"host": ["{{base_url}}"],
+							"path": ["financeservice", "delete-vendor-payment"]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:9000",
+			"type": "string"
+		},
+		{
+			"key": "jwt_token",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
